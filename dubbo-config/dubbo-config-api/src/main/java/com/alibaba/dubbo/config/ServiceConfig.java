@@ -451,7 +451,23 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if ((contextPath == null || contextPath.length() == 0) && provider != null) {
             contextPath = provider.getContextpath();
         }
-        URL url = new URL(name, host, port, (contextPath == null || contextPath.length() == 0 ? "" : contextPath + "/") + path, map);
+        
+        // 发布成 publishhost publishport
+        String publishhost = protocolConfig.getPublishhost();
+        Integer publishport = protocolConfig.getPublishport();
+        if (publishhost != null && publishport != null) {
+        	if (provider != null && (publishport == null || publishport == 0)) {
+        		publishport = port;
+            }
+        	if (provider != null && (publishhost == null || publishhost.length() == 0)) {
+        		publishhost = host;
+        	}
+        }else{
+        	publishhost = host;
+        	publishport = port;
+        }
+        
+        URL url = new URL(name, publishhost, publishport, (contextPath == null || contextPath.length() == 0 ? "" : contextPath + "/") + path, map);
 
         if (ExtensionLoader.getExtensionLoader(ConfiguratorFactory.class)
                 .hasExtension(url.getProtocol())) {

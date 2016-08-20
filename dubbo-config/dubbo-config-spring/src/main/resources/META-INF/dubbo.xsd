@@ -743,6 +743,16 @@
 				<xsd:documentation><![CDATA[ The service port. ]]></xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
+    <xsd:attribute name="publishhost" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation><![CDATA[ The publish host. ]]></xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="publishport" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation><![CDATA[ The publish port. ]]></xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
 		<xsd:attribute name="threadpool" type="xsd:string" use="optional">
 			<xsd:annotation>
 				<xsd:documentation><![CDATA[ The thread pool type. ]]></xsd:documentation>

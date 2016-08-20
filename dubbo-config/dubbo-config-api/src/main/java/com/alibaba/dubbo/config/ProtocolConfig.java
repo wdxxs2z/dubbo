@@ -48,6 +48,12 @@ public class ProtocolConfig extends AbstractConfig {
 
     // 服务端口
     private Integer             port;
+    
+    // 发布容器地址
+    private String              publishhost;
+    
+    // 发布容器端口
+    private Integer             publishport;
 
     // 上下文路径
     private String              contextpath;
@@ -166,6 +172,25 @@ public class ProtocolConfig extends AbstractConfig {
 
     public void setPort(Integer port) {
         this.port = port;
+    }
+    
+    @Parameter(excluded = true)
+    public String getPublishhost(){
+    	return publishhost;
+    }
+    
+    public void setPublishhost(String publishhost){
+    	checkName("publishhost", publishhost);
+    	this.publishhost = publishhost;
+    }
+    
+    @Parameter(excluded = true)
+    public Integer getPublishport() {
+        return publishport;
+    }
+
+    public void setPublishport(Integer publishport) {
+        this.publishport = publishport;
     }
 
     @Deprecated
